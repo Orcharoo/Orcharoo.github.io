@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: grey;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50vw;
+            height: 50vw;
+        }
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: solid gold;
+            object-fit: cover;
+        }
+        .arrow {
+            position: absolute;
+            top: calc(50% - 20px);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 20px;
+        }
+        .arrow.left {
+            left: -60px;
+        }
+        .arrow.right {
+            right: -60px;
+        }
+        .title {
+            position:absolute; 
+            top :calc(25vw - 27px - 20px); 
+            left :50%; 
+            transform :translateX(-50%); 
+            font-size :27px; 
+        }
+        .footer {
+            position:absolute; 
+            bottom :0; 
+            width :100%; 
+            text-align:center; 
+            font-size :27px; 
+            margin-bottom :20px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="title">That's why today I will once again lie... believing the lies will become the truth. Even if I end up paying for it one day...</div>
+    <div class="container">
+        <img class="image" src="image1.png">
+        <div class="arrow left"></div>
+        <div class="arrow right"></div>
+    </div>
+    <div class="footer">Hoshino Ai❤️<br>Orcharoo W/ AI Bot</div>
+    <script>
+        let images = ["image1.png", "image2.jpg", "image3.jpg"];
+        let currentImage = 0;
+
+        setInterval(() => {
+            currentImage = (currentImage + 1) % images.length;
+            document.querySelector(".image").src = images[currentImage];
+        }, 7000);
+
+        document.querySelector(".arrow.left").addEventListener("click", () => {
+            currentImage = (currentImage - 1 + images.length) % images.length;
+            document.querySelector(".image").src = images[currentImage];
+        });
+
+        document.querySelector(".arrow.right").addEventListener("click", () => {
+            currentImage = (currentImage + 1) % images.length;
+            document.querySelector(".image").src = images[currentImage];
+        });
+    </script>
+</body>
+</html>
